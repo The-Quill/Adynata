@@ -1,0 +1,3 @@
+int cats = 40000;
+const int dogs = cats;
+cats = 39999;
