@@ -45,7 +45,7 @@ and maybe a Vector or Point literal type:
  - <s>Get the parser working</s>
  - <s>Get the REPL working</s>
  - <s>Start the tokenizer</s>
- - <s>Get variable assignment working/s>
+ - <s>Get variable assignment working</s>
  - Get scopes working
  - Get loops working
  - Get the extended literal set working
