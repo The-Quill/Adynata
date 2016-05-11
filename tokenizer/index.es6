@@ -91,9 +91,6 @@ export default class AdynataTokenizer {
         let builtUpAlphaCharacters = ''
         for (var i = 0; i < this.Code.length; i++) {
             if (this.charsListContains(NonAlphaChars, currentChar) || i == this.Code.length - 1) {
-                // if (i == this.Code.length - 1){
-                //     //builtUpAlphaCharacters += currentChar
-                // }
                 if (state === CurrentState.INSIDE_STRING_SINGLE || state === CurrentState.INSIDE_STRING_DOUBLE){
                     builtUpAlphaCharacters += currentChar
                 } else if (builtUpAlphaCharacters == '') {
@@ -101,16 +98,12 @@ export default class AdynataTokenizer {
                     let keyword = this.charsListFindElem(AlphaChars, builtUpAlphaCharacters)
                     //console.log(`AlphaChar at character#${i-1}: "${keyword.Character}" of type "${keyword.Type}"`)
                     if (keyword.Type === AlphaType.VALUE_TYPE){
-                        if (state !== CurrentState.NONE && state !== CurrentState.MODIFIER_DECLARED){
-                            throw new AdynataError(`You can\'t set the state (${state}) the same as before "${builtUpAlphaCharacters}"`)
-                        } else {
+                        if (state === CurrentState.NONE && state !== CurrentState.MODIFIER_DECLARED){
                             state = CurrentState.TYPE_DECLARED
                         }
                         currentlyBeingAssignedVariable.Type = keyword
                     } else if (keyword.Type === AlphaType.MODIFIER){
-                        if (state !== CurrentState.NONE){
-                            throw new AdynataError('You can\'t set the state the same as before')
-                        } else {
+                        if (state === CurrentState.NONE){
                             state = CurrentState.MODIFIER_DECLARED
                         }
                         currentlyBeingAssignedVariable.Mutability = keyword
@@ -118,8 +111,10 @@ export default class AdynataTokenizer {
                     builtUpAlphaCharacters = ''
                 } else {
                     if (state === CurrentState.ASSIGNMENT){
+                        console.log(`Value (${builtUpAlphaCharacters + currentChar}) to get attached to ${JSON.stringify(currentlyBeingAssignedVariable)}`)
                         //console.log(`Assignment at character#${i-1}: "${currentlyBeingAssignedVariable.Name}" to get value "${builtUpAlphaCharacters}"`)
                         if (this.isAToken(builtUpAlphaCharacters + currentChar)) {
+                            console.log(`${currentlyBeingAssignedVariable.Name} to get value of ${builtUpAlphaCharacters + currentChar}`)
                             currentlyBeingAssignedVariable.Value = this.getToken(builtUpAlphaCharacters + currentChar).Value
                         } else {
                             currentlyBeingAssignedVariable.Value = builtUpAlphaCharacters + currentChar
@@ -188,13 +183,17 @@ export default class AdynataTokenizer {
                     //console.log(`Setting state at character#${i-1} to: "${state}"`)
 
                 } else {
-                    // The !keyword is giving issues
+                    //The !keyword is giving issues
 
-                    // if (!keyword && this.isAToken(builtUpAlphaCharacters) && state == CurrentState.NONE) {
-                    //     console.log(this.getToken(builtUpAlphaCharacters).Value)
-                    // } else if (state !== CurrentState.INSIDE_STRING_SINGLE && state !== CurrentState.INSIDE_STRING_DOUBLE && builtUpAlphaCharacters != '' && !keyword) {
-                    //     throw new AdynataError(`Unknown variable (${builtUpAlphaCharacters}) at state (${state}) with position #${i+1} of #${this.Code.length}. ${keyword}`)
-                    // }
+                    if (this.isAToken(builtUpAlphaCharacters) && state == CurrentState.NONE) {
+                        let currentToken = this.getToken(builtUpAlphaCharacters);
+                        currentlyBeingAssignedVariable.Name = currentToken.Name;
+                        currentlyBeingAssignedVariable.Type = currentToken.Type;
+                        state = CurrentState.ASSIGNMENT
+                        builtUpAlphaCharacters = ''
+                    } else if (state !== CurrentState.INSIDE_STRING_SINGLE && state !== CurrentState.INSIDE_STRING_DOUBLE && builtUpAlphaCharacters != '') {
+                        throw new AdynataError(`Unknown variable (${builtUpAlphaCharacters}) at position #${i+1} of #${this.Code.length}.`)
+                    }
                 }
             } else {
                 builtUpAlphaCharacters += currentChar
