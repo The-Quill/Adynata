@@ -1,5 +1,7 @@
 #Adynata
 
+![](https://travis-ci.org/The-Quill/Adynata.svg?branch=master)
+
 My horrible first attempt at a programming language.
 
 Attributes: static typing, no type coercion.
