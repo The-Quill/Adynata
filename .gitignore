@@ -1,9 +1,5 @@
 node_modules
 npm-debug.log
-.idea/*
-.idea/workspace.xml
-
-*.xml
+.idea/
 coverage/
-
-coverage/coverage.json
+out/
