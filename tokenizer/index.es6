@@ -29,10 +29,10 @@ export default class AdynataTokenizer {
         }
     }
     getTokens(){
-        return this._Tokens;
+        return this._Tokens
     }
     setTokens(value){
-        this._Tokens = value;
+        this._Tokens = value
     }
     charsListContains(charsList, value) {
         return charsList.map((char) => char.Character == value).includes(true)
@@ -111,13 +111,23 @@ export default class AdynataTokenizer {
                     builtUpAlphaCharacters = ''
                 } else {
                     if (state === CurrentState.ASSIGNMENT){
-                        console.log(`Value (${builtUpAlphaCharacters + currentChar}) to get attached to ${JSON.stringify(currentlyBeingAssignedVariable)}`)
+                       //console.log(`Value (${builtUpAlphaCharacters + currentChar}) to get attached to ${currentlyBeingAssignedVariable.Name}`)
                         //console.log(`Assignment at character#${i-1}: "${currentlyBeingAssignedVariable.Name}" to get value "${builtUpAlphaCharacters}"`)
-                        if (this.isAToken(builtUpAlphaCharacters + currentChar)) {
-                            console.log(`${currentlyBeingAssignedVariable.Name} to get value of ${builtUpAlphaCharacters + currentChar}`)
-                            currentlyBeingAssignedVariable.Value = this.getToken(builtUpAlphaCharacters + currentChar).Value
+                        let keyword = this.charsListFindElem(NonAlphaChars, currentChar)
+                        if (keyword.Type === NonAlphaType.STRING_SINGLE || keyword.Type === NonAlphaType.STRING_DOUBLE){
+                            if (this.isAToken(builtUpAlphaCharacters + currentChar)) {
+                               //console.log(`${currentlyBeingAssignedVariable.Name} to get value of ${builtUpAlphaCharacters + currentChar}`)
+                                currentlyBeingAssignedVariable.Value = this.getToken(builtUpAlphaCharacters + currentChar).Value
+                            } else {
+                                currentlyBeingAssignedVariable.Value = builtUpAlphaCharacters + currentChar
+                            }
                         } else {
-                            currentlyBeingAssignedVariable.Value = builtUpAlphaCharacters + currentChar
+                            if (this.isAToken(builtUpAlphaCharacters)) {
+                               //console.log(`${currentlyBeingAssignedVariable.Name} to get value of ${builtUpAlphaCharacters + currentChar}`)
+                                currentlyBeingAssignedVariable.Value = this.getToken(builtUpAlphaCharacters).Value
+                            } else {
+                                currentlyBeingAssignedVariable.Value = builtUpAlphaCharacters
+                            }
                         }
                         if (this.isAToken(currentlyBeingAssignedVariable.Name)) {
                             let retrievedToken = this.getToken(currentlyBeingAssignedVariable.Name)
@@ -156,7 +166,7 @@ export default class AdynataTokenizer {
                 if ((state === CurrentState.INSIDE_STRING_SINGLE && keyword.Type == NonAlphaType.STRING_SINGLE) ||
                     (state === CurrentState.INSIDE_STRING_DOUBLE && keyword.Type == NonAlphaType.STRING_DOUBLE)
                 ){
-                    console.log(`Assignment at character#${i-1}: "${currentlyBeingAssignedVariable.Name}" to get value "${builtUpAlphaCharacters}"`)
+                   //console.log(`Assignment at character#${i-1}: "${currentlyBeingAssignedVariable.Name}" to get value "${builtUpAlphaCharacters}"`)
                     if (currentlyBeingAssignedVariable.Type.Character === "var"){
                         currentlyBeingAssignedVariable.Type = this.guessType(builtUpAlphaCharacters)
                     }
@@ -186,9 +196,9 @@ export default class AdynataTokenizer {
                     //The !keyword is giving issues
 
                     if (this.isAToken(builtUpAlphaCharacters) && state == CurrentState.NONE) {
-                        let currentToken = this.getToken(builtUpAlphaCharacters);
-                        currentlyBeingAssignedVariable.Name = currentToken.Name;
-                        currentlyBeingAssignedVariable.Type = currentToken.Type;
+                        let currentToken = this.getToken(builtUpAlphaCharacters)
+                        currentlyBeingAssignedVariable.Name = currentToken.Name
+                        currentlyBeingAssignedVariable.Type = currentToken.Type
                         state = CurrentState.ASSIGNMENT
                         builtUpAlphaCharacters = ''
                     } else if (state !== CurrentState.INSIDE_STRING_SINGLE && state !== CurrentState.INSIDE_STRING_DOUBLE && builtUpAlphaCharacters != '') {
@@ -200,6 +210,6 @@ export default class AdynataTokenizer {
             }
             currentChar = this.getChar()
         }
-        console.log(this._Tokens)
+       //console.log(this._Tokens)
     }
 }
