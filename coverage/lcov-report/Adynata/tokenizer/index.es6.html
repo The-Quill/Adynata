@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for Adynata/tokenizer/index.es6</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">Adynata/tokenizer/</a> index.es6
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">81.2% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>95/117</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">74.19% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>69/93</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">76.92% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>10/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">80.53% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>91/113</span>
+      </div>
+      <div class='fl pad1y'>
+        <span class="strong">1 branch</span>
+        <span class="quiet">Ignored</span>  &nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">126×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4902×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">150×</span>
+<span class="cline-any cline-yes">1861×</span>
+<span class="cline-any cline-yes">150×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">249×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">244×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">244×</span>
+<span class="cline-any cline-yes">122×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">114×</span>
+<span class="cline-any cline-yes">51×</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">118×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">118×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">110×</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-yes">91×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">83×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">82×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">122×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">238×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import NonAlphaChars from './non_alpha'
+import AlphaChars from './alpha'
+import AdynataError from '../error'
+import {
+    KeywordStates,
+    NonAlphaType,
+    AlphaType
+} from '../states/types'
+import {
+    CurrentState,
+    LiteralState
+} from '../states/tokenizer'
+&nbsp;
+export default class AdynataTokenizer {
+    constructor(Code, Index = <span class="branch-1 cbranch-no" title="branch not covered" >0</span>) {
+        this.Code = Code
+        this.Index = Index
+&nbsp;
+        this._Tokens = []
+    }
+    isAToken(name){
+        return this._Tokens.map((token) =&gt; token.Name == name).includes(true)
+    }
+    getToken(name) {
+        for (let i = 0, length = this._Tokens.length; i &lt; length; i++) {
+            if (this._Tokens[i].Name == name) {
+                return this._Tokens[i]
+            }
+        }
+    }
+    getTokens()<span class="fstat-no" title="function not covered" >{</span>
+        return <span class="cstat-no" title="statement not covered" >this._Tokens</span>
+    }
+    setTokens(<span class="fstat-no" title="function not covered" >value){</span>
+        this.<span class="cstat-no" title="statement not covered" >_Tokens = value</span>
+    }
+    charsListContains(charsList, value) {
+        return charsList.map((char) =&gt; char.Character == value).includes(true)
+    }
+    charsListFindElem(charsList, value) {
+        for (let i = 0, length = charsList.length; i &lt; length; i++) {
+            if (charsList[i].Character == value) {
+                return charsList[i]
+            }
+        }
+        return <span class="cstat-no" title="statement not covered" >{</span>
+            Name: '',
+            Type: null,
+            Value: null,
+            Mutability: null,
+            OtherFactors: []
+        }
+    }
+    getChar() {
+        if (this.Index === this.Code.length) {
+            return ""
+        } else {
+            return this.Code[this.Index++]
+        }
+    }
+    guessType(<span class="fstat-no" title="function not covered" >value){</span>
+        if (<span class="cstat-no" title="statement not covered" >String(value).startsWith('"') || String(value).startsWith("'")) {</span>
+            return <span class="cstat-no" title="statement not covered" >this.charsListFindElem(AlphaChars, "string")</span>
+        } else <span class="cstat-no" title="statement not covered" >if (!isNaN(value)){</span>
+            return <span class="cstat-no" title="statement not covered" >this.charsListFindElem(AlphaChars, "int")</span>
+        } else {
+            throw <span class="cstat-no" title="statement not covered" >new AdynataError("Unknown type detected, use a type keyword instead")</span>
+        }
+&nbsp;
+    }
+    tokenize() {
+        let state = CurrentState.NONE
+        let currentlyBeingAssignedVariable = {
+            Name: '',
+            Type: null,
+            Value: null,
+            Mutability: null,
+            OtherFactors: []
+        }
+        let resetCurrentVariable = () =&gt; (
+            currentlyBeingAssignedVariable = {
+                Name: '',
+                Type: null,
+                Value: null,
+                Mutability: null,
+                OtherFactors: []
+            }
+        )
+        resetCurrentVariable()
+        let currentChar = this.getChar()
+        let builtUpAlphaCharacters = ''
+        for (var i = 0; i &lt; this.Code.length; i++) {
+            if (this.charsListContains(NonAlphaChars, currentChar) || i == this.Code.length - 1) {
+                if (state === CurrentState.INSIDE_STRING_SINGLE || state === CurrentState.INSIDE_STRING_DOUBLE){
+                    builtUpAlphaCharacters += currentChar
+                } else if (builtUpAlphaCharacters == '') {
+                } else if (this.charsListContains(AlphaChars, builtUpAlphaCharacters)) {
+                    let keyword = this.charsListFindElem(AlphaChars, builtUpAlphaCharacters)
+                    //console.log(`AlphaChar at character#${i-1}: "${keyword.Character}" of type "${keyword.Type}"`)
+                    if (<span class="missing-if-branch" title="else path not taken" >E</span>keyword.Type === AlphaType.VALUE_TYPE){
+                        if (<span class="missing-if-branch" title="else path not taken" >E</span>state === CurrentState.NONE &amp;&amp; state !== CurrentState.MODIFIER_DECLARED){
+                            state = CurrentState.TYPE_DECLARED
+                        }
+                        currentlyBeingAssignedVariable.Type = keyword
+                    } else <span class="cstat-no" title="statement not covered" >if (keyword.Type === AlphaType.MODIFIER){</span>
+                        if (<span class="cstat-no" title="statement not covered" >state === CurrentState.NONE){</span>
+                            state = <span class="cstat-no" title="statement not covered" >CurrentState.MODIFIER_DECLARED</span>
+                        }
+                        currentlyBeingAssignedVariable.<span class="cstat-no" title="statement not covered" >Mutability = keyword</span>
+                    }
+                    builtUpAlphaCharacters = ''
+                } else {
+                    if (state === CurrentState.ASSIGNMENT){
+                        console.log(`Value (${builtUpAlphaCharacters + currentChar}) to get attached to ${currentlyBeingAssignedVariable.Name}`)
+                        //console.log(`Assignment at character#${i-1}: "${currentlyBeingAssignedVariable.Name}" to get value "${builtUpAlphaCharacters}"`)
+                        let keyword = this.charsListFindElem(NonAlphaChars, currentChar)
+                        if (<span class="missing-if-branch" title="if path not taken" >I</span>keyword.Type === NonAlphaType.STRING_SINGLE || keyword.Type === NonAlphaType.STRING_DOUBLE){
+                            if (<span class="cstat-no" title="statement not covered" >this.isAToken(builtUpAlphaCharacters + currentChar)) {</span>
+                                console.<span class="cstat-no" title="statement not covered" >log(`${currentlyBeingAssignedVariable.Name} to get value of ${builtUpAlphaCharacters + currentChar}`)</span>
+                                currentlyBeingAssignedVariable.<span class="cstat-no" title="statement not covered" >Value = this.getToken(builtUpAlphaCharacters + currentChar).Value</span>
+                            } else {
+                                currentlyBeingAssignedVariable.<span class="cstat-no" title="statement not covered" >Value = builtUpAlphaCharacters + currentChar</span>
+                            }
+                        } else {
+                            if (this.isAToken(builtUpAlphaCharacters)) {
+                                console.log(`${currentlyBeingAssignedVariable.Name} to get value of ${builtUpAlphaCharacters + currentChar}`)
+                                currentlyBeingAssignedVariable.Value = this.getToken(builtUpAlphaCharacters).Value
+                            } else {
+                                currentlyBeingAssignedVariable.Value = builtUpAlphaCharacters
+                            }
+                        }
+                        if (this.isAToken(currentlyBeingAssignedVariable.Name)) {
+                            let retrievedToken = this.getToken(currentlyBeingAssignedVariable.Name)
+                            if (<span class="missing-if-branch" title="if path not taken" >I</span>retrievedToken.Mutability == this.charsListFindElem(AlphaChars, "const")) {
+                                throw <span class="cstat-no" title="statement not covered" >new AdynataError("Can't set a value on a constant variable.")</span>
+                            }
+                            if (<span class="missing-if-branch" title="if path not taken" >I</span>retrievedToken.Type.isValid(currentlyBeingAssignedVariable.Value)){
+                                this.<span class="cstat-no" title="statement not covered" >_Tokens.splice(this._Tokens.indexOf(retrievedToken), 1)</span>
+                            }
+                            let value = currentlyBeingAssignedVariable.Value
+                            currentlyBeingAssignedVariable = retrievedToken
+                            currentlyBeingAssignedVariable.Value = value
+                        }
+                        if (!currentlyBeingAssignedVariable.Type.isValid(currentlyBeingAssignedVariable.Value)){
+                            throw new AdynataError(`Invalid value ("${currentlyBeingAssignedVariable.Value}") for the ${currentlyBeingAssignedVariable.Type.Character} type.`)
+                        }
+                        if (<span class="missing-if-branch" title="if path not taken" >I</span>currentlyBeingAssignedVariable.Type.Character === "var"){
+                            currentlyBeingAssignedVariable.<span class="cstat-no" title="statement not covered" >Type = this.guessType(currentlyBeingAssignedVariable.Value)</span>
+                        }
+&nbsp;
+                        this._Tokens.push(currentlyBeingAssignedVariable)
+                        resetCurrentVariable()
+                        state = CurrentState.NONE
+                        builtUpAlphaCharacters = ''
+                    } else if (state === CurrentState.TYPE_DECLARED){
+                        if (<span class="missing-if-branch" title="if path not taken" >I</span>this.isAToken(builtUpAlphaCharacters)) {
+                            throw <span class="cstat-no" title="statement not covered" >new AdynataError("You can't declare a variable twice.")</span>
+                        }
+                        currentlyBeingAssignedVariable.Name = builtUpAlphaCharacters
+                        builtUpAlphaCharacters = ''
+                        state = CurrentState.NAMING
+                    }
+                }
+                let keyword = this.charsListFindElem(NonAlphaChars, currentChar)
+                //console.log(`NonAlphaChar at character#${i-1}: "${keyword.Character.replace("\n", "\\n").replace("\t", "\\t")}" of type "${keyword.Type}"`)
+                if ((</span>state === CurrentState.INSIDE_STRING_SINGLE &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >keyword.Type == NonAlphaType.STRING_SINGLE) ||
+                    (state === CurrentState.INSIDE_STRING_DOUBLE &amp;&amp; keyword.Type == NonAlphaType.STRING_DOUBLE)
+                ){
+                    console.log(`Assignment at character#${i-1}: "${currentlyBeingAssignedVariable.Name}" to get value "${builtUpAlphaCharacters}"`)
+                    if (<span class="missing-if-branch" title="if path not taken" >I</span>currentlyBeingAssignedVariable.Type.Character === "var"){
+                        currentlyBeingAssignedVariable.<span class="cstat-no" title="statement not covered" >Type = this.guessType(builtUpAlphaCharacters)</span>
+                    }
+                    if (!currentlyBeingAssignedVariable.Type.isValid(builtUpAlphaCharacters)){
+                        throw new AdynataError(`Invalid value ("${builtUpAlphaCharacters}") for the ${currentlyBeingAssignedVariable.Type.Character} type.`)
+                    }
+                    currentlyBeingAssignedVariable.Value = builtUpAlphaCharacters
+                    this._Tokens.push(currentlyBeingAssignedVariable)
+                    resetCurrentVariable()
+                    state = CurrentState.NONE
+                    builtUpAlphaCharacters = ''
+                } else if (state == CurrentState.NAMING &amp;&amp; keyword.Type === NonAlphaType.ASSIGNMENT){
+                    state = CurrentState.ASSIGNMENT
+                    builtUpAlphaCharacters = ""
+                } else if ((state !== CurrentState.INSIDE_STRING_SINGLE &amp;&amp; state !== CurrentState.INSIDE_STRING_DOUBLE) &amp;&amp;
+                    (  keyword.Type === NonAlphaType.STRING_SINGLE
+                    || keyword.Type === NonAlphaType.STRING_DOUBLE)){
+&nbsp;
+                    state = keyword.Type === NonAlphaType.STRING_SINGLE
+                        ? <span class="branch-0 cbranch-no" title="branch not covered" >CurrentState.INSIDE_STRING_SINGLE</span>
+                        : CurrentState.INSIDE_STRING_DOUBLE
+&nbsp;
+                    builtUpAlphaCharacters += currentChar
+                    //console.log(`Setting state at character#${i-1} to: "${state}"`)
+&nbsp;
+                } else {
+                    //The !keyword is giving issues
+&nbsp;
+                    if (this.isAToken(builtUpAlphaCharacters) &amp;&amp; state == CurrentState.NONE) {
+                        let currentToken = this.getToken(builtUpAlphaCharacters)
+                        currentlyBeingAssignedVariable.Name = currentToken.Name
+                        currentlyBeingAssignedVariable.Type = currentToken.Type
+                        state = CurrentState.ASSIGNMENT
+                        builtUpAlphaCharacters = ''
+                    } else <span class="missing-if-branch" title="if path not taken" >I</span>if (state !== CurrentState.INSIDE_STRING_SINGLE &amp;&amp; state !== CurrentState.INSIDE_STRING_DOUBLE &amp;&amp; builtUpAlphaCharacters != '') {
+                        throw <span class="cstat-no" title="statement not covered" >new AdynataError(`Unknown variable (${builtUpAlphaCharacters}) at position #${i+1} of #${this.Code.length}.`)</span>
+                    }
+                }
+            } else {
+                builtUpAlphaCharacters += currentChar
+            }
+            currentChar = this.getChar()
+        }
+        console.log(this._Tokens)
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu May 12 2016 14:22:08 GMT+1000 (AEST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
