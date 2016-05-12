@@ -5,3 +5,7 @@ npm-debug.log
 
 *.xml
 coverage/
+
+coverage/coverage.json
+
+coverage/coverage.json
