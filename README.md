@@ -1,6 +1,7 @@
 #Adynata
 
-![](https://travis-ci.org/The-Quill/Adynata.svg?branch=master) [![Coverage Status](https://coveralls.io/repos/The-Quill/Adynata/badge.svg?branch=master)](https://coveralls.io/r/The-Quill/Adynata?branch=master)
+![](https://travis-ci.org/The-Quill/Adynata.svg?branch=master) [![Coverage Status](https://coveralls.io/repos/github/The-Quill/Adynata/badge.svg?branch=master)](https://coveralls.io/github/The-Quill/Adynata?branch=master)
+
 
 My horrible first attempt at a programming language.
 
