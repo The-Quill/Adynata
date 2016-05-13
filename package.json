@@ -6,7 +6,7 @@
   "scripts": {
     "test": "babel-node node_modules/.bin/babel-istanbul cover _mocha",
     "test_build": "node_modules/.bin/istanbul cover grunt",
-		"coveralls": "istanbul cover _ mocha && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "coveralls": "istanbul cover _mocha && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "build": "grunt"
   },
   "repository": {
